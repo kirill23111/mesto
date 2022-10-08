@@ -2,7 +2,7 @@
 
 ## Проектная работа в рамках обучения на платформе Яндекс Практикум.
 ### Ссылка на проект:
-https://kirill23111.github.io/russian-travel/
+ https://kirill23111.github.io/mesto/
 
 В данном проекте используется Java Script.
 
