@@ -1,6 +1,5 @@
 .modal {
     background: rgba( 0, 0, 0, 0.5);
-    display: flex;
     align-items: center;
     margin: 195px auto 0;
     max-width: 430px;
