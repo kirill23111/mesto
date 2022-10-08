@@ -1,0 +1,36 @@
+@import url(../vendor/normalize.css);
+@import url(../vendor/fonts/fonts.css);
+
+@import url(../blocks/page/page.css);
+
+@import url(../blocks/header/header.css);
+@import url(../blocks/header/__image/header__image.css);
+@import url(../blocks/header/__line/header__line.css);
+
+@import url(../blocks/profile/profile.css);
+@import url(../blocks/profile/__add-button/profile__add-button.css);
+@import url(../blocks/profile/__edit-button/profile__edit-button.css);
+@import url(../blocks/profile/__image/profile__image.css);
+@import url(../blocks/profile/__info/profile__info.css);
+@import url(../blocks/profile/__paragraph/profile__paragraph.css);
+@import url(../blocks/profile/__title/profile__title.css);
+
+@import url(../blocks/elements/elements.css);
+
+@import url(../blocks/element/element.css);
+@import url(../blocks/element/__add/element__add.css);
+@import url(../blocks/element/__container/element__container.css);
+@import url(../blocks/element/__image/element__image.css);
+@import url(../blocks/element/__paragraph/element__paragraph.css);
+
+@import url(../blocks/footer/footer.css);
+@import url(../blocks/footer/__copyright/footer__copyright.css);
+
+@import url(../blocks/modal/modal.css);
+@import url(../blocks/modal/__content/modal__content.css);
+@import url(../blocks/modal/__close/modal__close.css);
+@import url(../blocks/modal/modal__title/modal__title.css);
+@import url(../blocks/modal/__name/modal__name.css);
+@import url(../blocks/modal/__job/modal__job.css);
+@import url(../blocks/modal/__save/modal__save.css);
+@import url(../blocks/modal/__opened/modal__opened.css);

@@ -1,0 +1,5 @@
+.element__image {
+    max-width: 282px;
+    display: block;
+    object-fit: cover;
+}

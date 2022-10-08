@@ -1,0 +1,21 @@
+.modal__close {
+    min-width: 32px;
+    min-height: 32px;
+    background-image: url(../../../images/close-Icon.svg);
+    background-size: cover;
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    margin: 0 0 16px;
+}
+@media screen and (max-width: 879px) {
+    .modal__close {
+        right: 0px;
+        min-width: 20px;
+        min-height: 20px;
+    }
+}
+
+.modal__close:hover {
+    opacity: 0.6;
+}

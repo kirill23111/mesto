@@ -1,0 +1,13 @@
+.modal__content {
+    background-color: #fff;
+    min-height: 330px;
+    padding: 34px 36px 37px;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 879px) {
+    .modal__content {
+        padding: 25px 22px;
+    }
+}
