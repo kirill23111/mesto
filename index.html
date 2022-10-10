@@ -10,59 +10,58 @@
     <div class="page">
         <header class="header">
             <img src="./images/header.svg" alt="Логотип" class="header__image">
-            <div class="header__line"></div>
         </header>
         <main>
             <section class="profile">
                 <img src="./images/image.jpg" alt="Жак-Ив Кусто" class="profile__image">
                 <div class="profile__info">
                     <h1 class="profile__title">Жак-Ив Кусто</h1>
-                    <p class="profile__paragraph">Исследователь океана</p>
-                    <button class="profile__edit-button"></button>
+                    <h3 class="profile__paragraph">Исследователь океана</h3>
+                    <button class="profile__edit-button" type="button"></button>
                 </div>
-                <button class="profile__add-button"></button>
+                <button class="profile__add-button" type="button"></button>
             </section>
             <section class="elements">
                 <div class="element">
                     <img src="./images/karachaevsk.jpg" alt="Карачаевск" class="element__image">
                     <div class="element__container">
                         <p class="element__paragraph">Карачаевск</p>
-                        <img src="./images/vector.svg" alt="Добавить" class="element__add">
+                        <button class="element__add" type="button"></button>
                     </div>
                 </div>
                 <div class="element">
                     <img src="./images/elbrus.jpg" alt="Гора Эльбрус" class="element__image">
                     <div class="element__container">
                         <p class="element__paragraph">Гора Эльбрус</p>
-                        <img src="./images/vector.svg" alt="Добавить" class="element__add">
+                        <button class="element__add" type="button"></button>
                     </div>
                 </div>
                 <div class="element">
                     <img src="./images/Dombai.jpg" alt="Домбай" class="element__image">
                     <div class="element__container">
                         <p class="element__paragraph">Домбай</p>
-                        <img src="./images/vector.svg" alt="Добавить" class="element__add">
+                        <button class="element__add" type="button"></button>
                     </div>
                 </div>
                 <div class="element">
                     <img src="./images/elbrus.jpg" alt="Гора Эльбрус" class="element__image">
                     <div class="element__container">
                         <p class="element__paragraph">Гора Эльбрус</p>
-                        <img src="./images/vector.svg" alt="Добавить" class="element__add">
+                        <button class="element__add" type="button"></button>
                     </div>
                 </div>
                 <div class="element">
                     <img src="./images/Dombai.jpg" alt="Домбай" class="element__image">
                     <div class="element__container">
                         <p class="element__paragraph">Домбай</p>
-                        <img src="./images/vector.svg" alt="Добавить" class="element__add">
+                        <button class="element__add" type="button"></button>
                     </div>
                 </div>
                 <div class="element">
                     <img src="./images/karachaevsk.jpg" alt="Карачаево-Черкесск" class="element__image">
                     <div class="element__container">
                         <p class="element__paragraph">Карачаево-Черкесск</p>
-                        <img src="./images/vector.svg" alt="Добавить" class="element__add">
+                        <button class="element__add" type="button"></button>
                     </div>
                 </div>
             </section>
@@ -71,17 +70,17 @@
             <p class="footer__copyright">© 2020 Mesto Russia</p>
         </footer>
     </div>
-    <section class="modal">
-        <div class="modal__content">
-            <div class="modal__close"></div>
-            <form action="#" class="modal__form">
-                <h2 class="modal__title">Редактировать профиль</h2>
-                <input type="text" class="modal__name">
-                <input type="text" class="modal__job">
-                <button class="modal__save">Сохранить</button>
+    <section class="popup">
+        <div class="popup__container">
+            <button class="popup__close" type="button"></button>
+            <form action="#" class="popup__form" name="changeInfo">
+                <h2 class="popup__title">Редактировать профиль</h2>
+                <input type="text" class="popup__info popup__info_type_name" name="name">
+                <input type="text" class="popup__info popup__info_type_job " name="job">
+                <button class="popup__save" type="submit">Сохранить</button>
             </form>
         </div>
     </section>
-    <script src="./scripts/sctripts.js"></script>
+    <script src="./scripts/index.js"></script>
 </body>
 </html>

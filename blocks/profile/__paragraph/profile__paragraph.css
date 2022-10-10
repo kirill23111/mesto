@@ -1,5 +1,7 @@
 .profile__paragraph {
     max-width: 336px;
+    max-height: 18px;
+    height: 100%;
     color: #FFFFFF;
     margin: 0;
     align-items: center;
@@ -20,5 +22,6 @@
         line-height: 17px;
         text-align: center;
         max-width: 189px;
+        max-height: 14px;
     }
 }

@@ -1,16 +1,16 @@
 let openProfileForm = document.querySelector(".profile__edit-button");
-let saveProfile = document.querySelector(".modal__save");
+let saveProfile = document.querySelector(".popup__save");
 let nameProfile = document.querySelector(".profile__title");
 let infoProfile = document.querySelector(".profile__paragraph");
-let modal = document.querySelector(".modal");
-let form = document.querySelector(".modal__form");
-let nameInput = document.querySelector(".modal__name");
-let infoInput = document.querySelector(".modal__job");
-let closeProfileForm = document.querySelector(".modal__close");
+let modal = document.querySelector(".popup");
+let form = document.querySelector(".popup__form");
+let nameInput = document.querySelector(".popup__info_type_name");
+let infoInput = document.querySelector(".popup__info_type_job");
+let closeProfileForm = document.querySelector(".popup__close");
 
 
 function openProfile() {
-  modal.classList.add("modal__opened");
+  modal.classList.add("popup__opened");
   nameInput.value = nameProfile.textContent;
   infoInput.value = infoProfile.textContent;
 }
@@ -19,7 +19,7 @@ function openProfile() {
 
 
 function closeProfile() {
-  modal.classList.remove("modal__opened");
+  modal.classList.remove("popup__opened");
 }
 
   closeProfileForm.addEventListener('click', closeProfile);

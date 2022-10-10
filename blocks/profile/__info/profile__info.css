@@ -1,5 +1,7 @@
 .profile__info {
     max-width: 336px;
+    max-height: 73px;
+    height: 100%;
     display: grid;
     /*grid-template-columns: 460px 1fr;*/
     grid-template-areas:
@@ -7,15 +9,21 @@
         "paragraph empty";
     row-gap: 16px;
     column-gap: 18px;
+    margin-top: 20px;
 }
 
 @media screen and (max-width: 879px) {
     .profile__info {
         max-width: 282px;
+        max-height: 54px;
+        height: 100%;
         align-items: center;
         margin-bottom: 36px;
         row-gap: 14px;
         column-gap: 10px;
-        padding-left: 37px;
+        margin: 0;
+        align-self: center;
+        margin-bottom: 36px;
+        padding-left: 24px;
     }
 }
