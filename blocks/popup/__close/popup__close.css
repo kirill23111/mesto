@@ -9,12 +9,14 @@
     margin: 0 0 16px;
     border: 0;
     background-color: #000;
+    cursor: pointer;
 }
 @media screen and (max-width: 879px) {
     .popup__close {
         right: 0px;
         min-width: 20px;
         min-height: 20px;
+        top: -37px;
     }
 }
 

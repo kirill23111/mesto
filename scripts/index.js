@@ -10,7 +10,7 @@ let closeProfileForm = document.querySelector(".popup__close");
 
 
 function openProfile() {
-  modal.classList.add("popup__opened");
+  modal.classList.add("popup_opened");
   nameInput.value = nameProfile.textContent;
   infoInput.value = infoProfile.textContent;
 }
@@ -19,7 +19,7 @@ function openProfile() {
 
 
 function closeProfile() {
-  modal.classList.remove("popup__opened");
+  modal.classList.remove("popup_opened");
 }
 
   closeProfileForm.addEventListener('click', closeProfile);
