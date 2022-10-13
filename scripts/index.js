@@ -30,7 +30,7 @@ function formSubmitHandler(a) {
   nameProfile.textContent = nameInput.value;
   infoProfile.textContent = infoInput.value;
 
-  saveProfile.addEventListener('click', closeProfile);
+  closeProfile()
 }
 
   form.addEventListener('submit', formSubmitHandler); 
