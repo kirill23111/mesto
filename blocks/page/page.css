@@ -4,6 +4,5 @@
     flex-direction: column;
     margin: 0 auto;
     font-family: 'Inter', Arial, sans-serif;
-    height: 100vh;
-    min-height: 1250px;
+    min-height: 100vh;
 }

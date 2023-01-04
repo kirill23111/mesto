@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./pages/index.css">
     <title>Mesto</title>
 </head>
+
 <body>
     <div class="page">
         <header class="header">
@@ -22,48 +24,6 @@
                 <button class="profile__add-button" type="button"></button>
             </section>
             <section class="elements">
-                <div class="element">
-                    <img src="./images/karachaevsk.jpg" alt="Карачаевск" class="element__image">
-                    <div class="element__container">
-                        <h2 class="element__title">Карачаевск</h2>
-                        <button class="element__add" type="button"></button>
-                    </div>
-                </div>
-                <div class="element">
-                    <img src="./images/elbrus.jpg" alt="Гора Эльбрус" class="element__image">
-                    <div class="element__container">
-                        <h2 class="element__title">Гора Эльбрус</h2>
-                        <button class="element__add" type="button"></button>
-                    </div>
-                </div>
-                <div class="element">
-                    <img src="./images/Dombai.jpg" alt="Домбай" class="element__image">
-                    <div class="element__container">
-                        <h2 class="element__title">Домбай</h2>
-                        <button class="element__add" type="button"></button>
-                    </div>
-                </div>
-                <div class="element">
-                    <img src="./images/elbrus.jpg" alt="Гора Эльбрус" class="element__image">
-                    <div class="element__container">
-                        <h2 class="element__title">Гора Эльбрус</h2>
-                        <button class="element__add" type="button"></button>
-                    </div>
-                </div>
-                <div class="element">
-                    <img src="./images/Dombai.jpg" alt="Домбай" class="element__image">
-                    <div class="element__container">
-                        <h2 class="element__title">Домбай</h2>
-                        <button class="element__add" type="button"></button>
-                    </div>
-                </div>
-                <div class="element">
-                    <img src="./images/karachaevsk.jpg" alt="Карачаево-Черкесск" class="element__image">
-                    <div class="element__container">
-                        <h2 class="element__title">Карачаево-Черкесск</h2>
-                        <button class="element__add" type="button"></button>
-                    </div>
-                </div>
             </section>
         </main>
         <footer class="footer">
@@ -81,6 +41,39 @@
             <button class="popup__close" type="button"></button>
         </div>
     </section>
+    <section class="popup popup-add">
+        <div class="popup__container">
+            <h2 class="popup__title_add">Новое место</h2>
+            <form action="#" class="popup__form popup__form_add" name="addInfo">
+                <input type="text" class="popup__info popup__info_type_name-image" placeholder="Название"
+                    name="addImage">
+                <input type="text" class="popup__info popup__info_type_image " placeholder="Ссылка на картинку"
+                    name="link">
+                <button class="popup__save_add" type="submit">Создать</button>
+            </form>
+            <button class="popup__close popup__close_add" type="button"></button>
+        </div>
+    </section>
+    <div class="popup popup-full">
+        <div class="popup-full__container">
+            <img src="#" alt="Картинка" class="popup-full__image">
+            <h2 class="popup-full__title"></h2>
+            <button type="button" class="popup-full__close"></button>
+        </div>
+    </div>
+    <template id="cardTemplate">
+        <div class="element">
+            <img src="#" class="element__image">
+            <button class="element__trash" type="button"></button>
+            <div class="element__line">
+                <h2 class="element__name"></h2>
+                <button class="element__like" type="button" aria-label="like">
+                    
+                </button>
+            </div>
+        </div>
+    </template>
     <script src="./scripts/index.js"></script>
 </body>
+
 </html>
