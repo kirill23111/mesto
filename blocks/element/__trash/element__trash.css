@@ -1,6 +1,5 @@
 .element__trash {
     background-image: url(../../../images/trash.svg);
-    background-repeat: no-repeat;
     background-size: cover;
     width: 18px;
     height: 19px;
