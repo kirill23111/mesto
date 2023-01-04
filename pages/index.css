@@ -38,8 +38,8 @@
 @import url(../blocks/popup/__title/popup__title.css);
 @import url(../blocks/popup/__info/popup__info.css);
 
-@import url(../blocks/popup/__title/_add/popup__title_add.css);
-@import url(../blocks/popup/__save/_add/popup__save_add.css);
+@import url(../blocks/popup/__title-add/popup__title-add.css);
+@import url(../blocks/popup/__save-add/popup__save-add.css);
 @import url(../blocks/popup/_opened/popup_opened-add.css);
 
 @import url(../blocks/popup-full/popup-full.css);

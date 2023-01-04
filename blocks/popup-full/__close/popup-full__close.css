@@ -8,7 +8,7 @@
     right: -40px;
     margin: 0 0 16px;
     border: 0;
-    background-color: #000;
+    background-color: transparent;
     cursor: pointer;
 }
 @media screen and (max-width: 879px) {
