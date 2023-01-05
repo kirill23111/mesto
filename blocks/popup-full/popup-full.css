@@ -1,5 +1,4 @@
 .popup-full {
-    color: #000;
     position: fixed;
     align-items: center;
     justify-content: center;
@@ -8,5 +7,5 @@
     bottom: 0;
     left: 0;
     display: none;
-    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow:rgb(0 0 0 / 15%);
 }
