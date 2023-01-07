@@ -22,13 +22,16 @@ function openPopup(modal) {
 function closePopup(modal) {
   modal.classList.remove("popup_opened");
 }
-buttonOpenPopupProfile.addEventListener('click', () => openPopup(popupProfile));
-nameInput.value = nameProfile.textContent;
-infoInput.value = infoProfile.textContent;
+buttonOpenPopupProfile.addEventListener('click', () =>  {
+  nameInput.value = nameProfile.textContent;
+  infoInput.value = infoProfile.textContent;
+
+  openPopup(popupProfile)
+});
 
 buttonCloseProfileForm.addEventListener('click', () => closePopup(popupProfile));
 
-function formSubmitHandler(a) {
+function submitformHandler(a) {
   a.preventDefault();
   nameProfile.textContent = nameInput.value;
   infoProfile.textContent = infoInput.value;
@@ -36,7 +39,7 @@ function formSubmitHandler(a) {
   closePopup(popupProfile);
 }
 
-form.addEventListener('submit', formSubmitHandler);
+form.addEventListener('submit', submitformHandler);
 
 buttonOpenProfileAdd.addEventListener('click', () => openPopup(modalAdd));
 buttonCloseProfileAdd.addEventListener('click', () => closePopup(modalAdd));
@@ -87,7 +90,7 @@ function createCardNode(cardInfo) {
     fullPopupCardTitleNode.textContent = cardInfo.title;
     fullPopupCardTitleNode.alt = cardInfo.title;
 
-    fullPopup.classList.add('popup-full_active');
+    openPopup(fullPopup)
   });
 
   likeNode.addEventListener('click', () => {
@@ -103,12 +106,9 @@ function createCardNode(cardInfo) {
   return elementNode;
 }
 const fullPopup = document.querySelector('.popup-full')
-const fullClose = document.querySelector('.popup-full__close')
-function closeFullPopup() {
-  fullPopup.classList.remove('popup-full_active');
-}
+const closeFullPopup = document.querySelector('.popup-full__close')
 
-fullClose.addEventListener('click', closeFullPopup);
+closeFullPopup.addEventListener('click', () => closePopup(fullPopup));
 
 const cardsInfo = [
   {
