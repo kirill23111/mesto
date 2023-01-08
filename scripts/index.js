@@ -15,6 +15,8 @@ const inputCreateCardTitle = document.querySelector(".popup__info_type_name-imag
 const inputCreateCardSrc = document.querySelector(".popup__info_type_image");
 const buttonCloseProfileForm = document.querySelector(".popup__close");
 const elementsNode = document.querySelector('.elements');
+const fullPopupCardImgNode = document.querySelector('.popup-full__image')
+  const fullPopupCardTitleNode = document.querySelector('.popup-full__title')
 
 function openPopup(modal) {
   modal.classList.add("popup_opened");
@@ -81,9 +83,6 @@ function createCardNode(cardInfo) {
   imageNode.src = cardInfo.imgSrc;
   imageNode.alt = cardInfo.title;
   imageNode.title = cardInfo.title;
-
-  const fullPopupCardImgNode = document.querySelector('.popup-full__image')
-  const fullPopupCardTitleNode = document.querySelector('.popup-full__title')
 
   imageNode.addEventListener('click', () => {
     fullPopupCardImgNode.src = cardInfo.imgSrc;
