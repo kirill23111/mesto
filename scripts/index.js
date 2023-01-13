@@ -20,9 +20,11 @@ const fullPopupCardImgNode = document.querySelector('.popup-full__image')
 
 function openPopup(modal) {
   modal.classList.add("popup_opened");
+  document.addEventListener("keydown", handleKeyPress)
 }
 function closePopup(modal) {
   modal.classList.remove("popup_opened");
+  document.addEventListener("keydown", handleKeyPress)
 }
 buttonOpenPopupProfile.addEventListener('click', () =>  {
   nameInput.value = nameProfile.textContent;
@@ -47,9 +49,25 @@ buttonOpenProfileAdd.addEventListener('click', () => openPopup(modalAdd));
 buttonCloseProfileAdd.addEventListener('click', () => closePopup(modalAdd));
 
 
-// Эта функция рендерит карточки в браузере
-// cardsInfo - массив с объектами, в которых хранится информация о карточках
-// whereToInsertNode - узел, куда будем вставлять(рендерить) карточки-узлы
+function handleKeyPress (evt) {
+  if (evt.key === "Escape") {
+      const activatedPopup = document.querySelector(".popup_opened")
+      console.log(activatedPopup)
+      closePopup(activatedPopup)
+  }
+}
+
+const closeOverley = Array.from(document.querySelectorAll(".popup"));
+closeOverley.forEach((overley) => {
+  overley.addEventListener("click", (evt) => {
+
+    if (evt.target.classList.contains('popup_opened')) {
+      closePopup(evt.target);
+    }
+
+  });
+});    
+
 function initRenderCards(cardsInfo) {
   for (const cardInfo of cardsInfo) {
     renderCard(cardInfo);
@@ -135,6 +153,16 @@ const cardsInfo = [
     imgSrc: './images/karachaevsk.jpg'
   },
 ];
+const validationConfig = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__info',
+  submitButtonSelector: '.popup__button',
+  activeButtonClass: 'popup__button_valid',
+  inactiveButtonClass: 'popup__button_invalid',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__input-error_visible'
+};
+
 
 
 const addNewCard = (event) => {
@@ -156,3 +184,4 @@ const addNewCard = (event) => {
 formAdd.addEventListener('submit', addNewCard);
 
 initRenderCards(cardsInfo);
+enableValidation(validationConfig);

@@ -34,9 +34,11 @@
         <div class="popup__container">
             <h2 class="popup__title">Редактировать профиль</h2>
             <form action="#" class="popup__form" name="changeInfo">
-                <input type="text" class="popup__info popup__info_type_name" name="name">
-                <input type="text" class="popup__info popup__info_type_job " name="job">
-                <button class="popup__save" type="submit">Сохранить</button>
+                <input type="text" class="popup__info popup__info_type_name" id="name" name="name" maxlenght="40" minlength="2" required>
+                <span class="popup__input-eror name-error"></span>
+                <input type="text" class="popup__info popup__info_type_job" id="job" name="job" maxlenght="200" minlength="2" required>
+                <span class="popup__input-eror job-error"></span>
+                <button class=" popup__button popup__save" type="submit">Сохранить</button>
             </form>
             <button class="popup__close" type="button"></button>
         </div>
@@ -45,11 +47,13 @@
         <div class="popup__container">
             <h2 class="popup__title-add">Новое место</h2>
             <form action="#" class="popup__form popup__form-add" name="addInfo">
-                <input type="text" class="popup__info popup__info_type_name-image" placeholder="Название"
-                    name="addImage">
-                <input type="text" class="popup__info popup__info_type_image " placeholder="Ссылка на картинку"
-                    name="link">
-                <button class="popup__save-add" type="submit">Создать</button>
+                <input type="text" class="popup__info popup__info_type_name-image" id="mesto" placeholder="Название места"
+                    name="addImage" minlength="4" maxlenght="30">
+                    <span class="popup__input-eror mesto-error"></span>
+                <input type="url" class="popup__info popup__info_type_image" id="link" placeholder="Ссылка на картинку"
+                    name="link" required>
+                    <span class="popup__input-eror link-error"></span>
+                <button class="popup__button popup__save-add" type="submit">Создать</button>
             </form>
             <button class="popup__close popup__close-add" type="button"></button>
         </div>
@@ -73,6 +77,7 @@
             </div>
         </div>
     </template>
+    <script src="./scripts/validate.js"></script>
     <script src="./scripts/index.js"></script>
 </body>
 
