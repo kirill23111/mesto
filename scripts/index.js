@@ -16,16 +16,19 @@ const inputCreateCardSrc = document.querySelector(".popup__info_type_image");
 const buttonCloseProfileForm = document.querySelector(".popup__close");
 const elementsNode = document.querySelector('.elements');
 const fullPopupCardImgNode = document.querySelector('.popup-full__image')
-  const fullPopupCardTitleNode = document.querySelector('.popup-full__title')
+const fullPopupCardTitleNode = document.querySelector('.popup-full__title')
+const addForm = document.querySelector('.popup__form-add')
 
 function openPopup(modal) {
   modal.classList.add("popup_opened");
-  document.addEventListener("keydown", handleKeyPress)
+  // document.addEventListener("keydown", handleKeyPress)
 }
+
 function closePopup(modal) {
   modal.classList.remove("popup_opened");
-  document.addEventListener("keydown", handleKeyPress)
+  // document.addEventListener("keydown", handleKeyPress)
 }
+
 buttonOpenPopupProfile.addEventListener('click', () =>  {
   nameInput.value = nameProfile.textContent;
   infoInput.value = infoProfile.textContent;
@@ -45,17 +48,22 @@ function submitformHandler(a) {
 
 form.addEventListener('submit', submitformHandler);
 
-buttonOpenProfileAdd.addEventListener('click', () => openPopup(modalAdd));
+
+buttonOpenProfileAdd.addEventListener('click', function (evt) {
+  evt.preventDefault();
+  openPopup(modalAdd);
+  setEventListeners(addForm, validationConfig);
+});
 buttonCloseProfileAdd.addEventListener('click', () => closePopup(modalAdd));
 
 
-function handleKeyPress (evt) {
-  if (evt.key === "Escape") {
-      const activatedPopup = document.querySelector(".popup_opened")
-      console.log(activatedPopup)
-      closePopup(activatedPopup)
-  }
-}
+// function handleKeyPress (evt) {
+//   if (evt.key === "Escape") {
+//     const activatedPopup = document.querySelector(".popup_opened")
+//       console.log(activatedPopup)
+//       closePopup(activatedPopup)
+//   }
+// }
 
 const closeOverley = Array.from(document.querySelectorAll(".popup"));
 closeOverley.forEach((overley) => {
@@ -126,6 +134,14 @@ const fullPopup = document.querySelector('.popup-full')
 const closeFullPopup = document.querySelector('.popup-full__close')
 
 closeFullPopup.addEventListener('click', () => closePopup(fullPopup));
+
+window.addEventListener('keydown', (evt) => {
+  if (evt.key === 'Escape') {
+    closePopup(popupProfile);
+    closePopup(modalAdd);
+    closePopup(fullPopup);
+  }
+});
 
 const cardsInfo = [
   {

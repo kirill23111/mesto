@@ -28,16 +28,19 @@ function hasInvalidInput(inputList) {
 
 function toggleButtonState(inputList, buttonElement, config) {
     if (hasInvalidInput(inputList)) {
-      buttonElement.classList.remove(config.activeButtonClass);
+      // buttonElement.classList.remove(config.activeButtonClass);
+      // buttonElement.classList.add(config.inactiveButtonClass);
+      // buttonElement.disabled = true;
       buttonElement.classList.add(config.inactiveButtonClass);
       buttonElement.disabled = true;
     } else {
-      buttonElement.classList.add(config.activeButtonClass);
+      // buttonElement.classList.add(config.activeButtonClass);
+      // buttonElement.classList.remove(config.inactiveButtonClass);
+      // buttonElement.disabled = false;
       buttonElement.classList.remove(config.inactiveButtonClass);
-      buttonElement.disabled = false;
+        buttonElement.disabled = false;
     }
   }
-
 
   function setEventListeners (formElement, config) {
     const inputList = Array.from(formElement.querySelectorAll(config.inputSelector));
