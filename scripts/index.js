@@ -54,9 +54,9 @@ buttonOpenProfileAdd.addEventListener('click', function (evt) {
 });
 buttonCloseProfileAdd.addEventListener('click', () => closePopup(modalAdd));
 
-const overleyPopups = Array.from(document.querySelector(".popup"));
-overleyPopups.forEach((overleyPopups) => {
-  overleyPopups.addEventListener("click", (evt) => {
+const overleyPopups = Array.from(document.querySelectorAll(".popup"));
+overleyPopups.forEach((overley) => {
+  overley.addEventListener("click", (evt) => {
 
     if (evt.target.classList.contains('popup_opened')) {
       closePopup(evt.target);
