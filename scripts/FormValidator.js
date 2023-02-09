@@ -29,17 +29,17 @@ _checkInputValidity = (inputElement) => {
     }
   };
   
- _hasInvalidInput = (inputElement) => {
+ _hasInvalidInput = () => {
     return this._inputList.some((inputElement) => !inputElement.validity.valid);
   }
-  resetValidation(inputElement) {
+  resetValidation() {
     this._inputList.forEach((inputElement) => {
       this._hideInputError(inputElement);
     });
     this._toggleButtonState();
   };
   _toggleButtonState() {
-    if (this._hasInvalidInput(this._inputList)) {
+    if (this._hasInvalidInput()) {
       this._buttonElement.classList.add(this._config.inactiveButtonClass);
       this._buttonElement.disabled = true;
     } else {
@@ -48,17 +48,17 @@ _checkInputValidity = (inputElement) => {
     }
   }
 _setEventListeners() {
-    this._toggleButtonState(this._inputList, this._buttonElement, this._config);
+    this._toggleButtonState();
   
     this._formElement.addEventListener('reset', () => {
       setTimeout(() => {
-        this._toggleButtonState(this._inputList, this._buttonElement, this._config);
+        this._toggleButtonState();
       }, 0);
     });
   
     this._inputList.forEach((inputElement) => {
       inputElement.addEventListener('input', () => {
-        this._checkInputValidity();
+        this._checkInputValidity(inputElement);
         this._toggleButtonState();
       })
     })
@@ -66,9 +66,6 @@ _setEventListeners() {
 
   enableValidation () {
     const findFormList = Array.from(document.querySelectorAll(this._config.formSelector));
-    
-    findFormList.forEach(() => {
-        this._setEventListeners(this._formElement, this._config)
-    });
+    this._setEventListeners(this._formElement, this._config)
 };
 }

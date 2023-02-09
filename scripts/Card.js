@@ -1,14 +1,11 @@
-// возвращает узел (в браузере ничего не появляется)
-
-import { fullPopup, fullPopupCardImgNode, fullPopupCardTitleNode, openPopup } from "./index.js";
-
 export class Card {
 
-    constructor(data, selectorTemplate) {
+    constructor(data, selectorTemplate, handleOpenPopup) {
         this._link = data.link;
         this._name = data.name;
         this._alt = data.name;
         this._selectorTemplate = selectorTemplate;
+        this._handleOpenPopup = handleOpenPopup;
     }
 
     _getTemplate() {
@@ -38,10 +35,7 @@ export class Card {
     }
 
     _imgClick = () => {
-        fullPopupCardImgNode.setAttribute('src', this._link);
-        fullPopupCardImgNode.setAttribute('alt', this._name);
-        fullPopupCardTitleNode.textContent = this._name;
-        openPopup(fullPopup);
+        this._handleOpenPopup(this._name, this._link);
     }
 
     _likeClick = () => {

@@ -1,6 +1,7 @@
 import { Card } from './Card.js';
 import { FormValidator } from "./FormValidator.js";
 
+const popup = document.querySelector('.popup')
 const buttonOpenPopupProfile = document.querySelector(".profile__edit-button");
 const popupProfile = document.querySelector('.popup-profile')
 const buttonOpenProfileAdd = document.querySelector(".profile__add-button")
@@ -9,23 +10,22 @@ const buttonsaveProfile = document.querySelector(".popup__save");
 const nameProfile = document.querySelector(".profile__title");
 const infoProfile = document.querySelector(".profile__paragraph");
 const modalAdd = document.querySelector(".popup-add")
-const profileForm = document.querySelector(".popup__form");
+const profileForm = popup.querySelector(".popup__form");
 const nameInput = document.querySelector(".popup__info_type_name");
 const infoInput = document.querySelector(".popup__info_type_job");
 const inputCreateCardTitle = document.querySelector(".popup__info_type_name-image");
 const inputCreateCardSrc = document.querySelector(".popup__info_type_image");
 const buttonCloseProfileForm = document.querySelector(".popup__close");
 const elementsNode = document.querySelector('.elements');
-export const fullPopupCardImgNode = document.querySelector('.popup-full__image');
-export const fullPopup = document.querySelector('.popup-full');
+const fullPopupCardImgNode = document.querySelector('.popup-full__image');
+const fullPopup = document.querySelector('.popup-full');
 const closeFullPopup = document.querySelector('.popup-full__close');
-export const fullPopupCardTitleNode = document.querySelector('.popup-full__title');
+const fullPopupCardTitleNode = document.querySelector('.popup-full__title');
 const addForm = document.querySelector('.popup__form-add');
 const cardElements = document.querySelector('.element__cards');
 const overleyPopups = Array.from(document.querySelectorAll(".popup"));
 
   const validationConfig = {
-    formSelector: '.popup__form',
     inputSelector: '.popup__info',
     submitButtonSelector: '.popup__button',
     activeButtonClass: 'popup__button_valid',
@@ -66,7 +66,7 @@ const addFormValidator = new FormValidator(validationConfig, addForm);
 editProfileFormValidator.enableValidation();
 addFormValidator.enableValidation();
 
-export function openPopup(modal) {
+function openPopup(modal) {
   modal.classList.add("popup_opened");
   document.addEventListener('keydown', closeByEscape);
 }
@@ -95,6 +95,13 @@ function handleProfileFormSubmit(a) {
   closePopup(popupProfile);
 }
 
+function handleOpenPopup(name, link) {
+  fullPopupCardImgNode.setAttribute('src', link);
+  fullPopupCardImgNode.setAttribute('alt', name);
+  fullPopupCardTitleNode.textContent = name;
+  openPopup(fullPopup)
+}
+
 function initCards(initialCards) {
   for (const cardInfo of initialCards) {
     renderCard(cardInfo);
@@ -102,7 +109,7 @@ function initCards(initialCards) {
 };
 
 function renderCard(cardInfo, type = 'append') {
-  const card = new Card(cardInfo, '#cardTemplate');
+  const card = new Card(cardInfo, '#cardTemplate', handleOpenPopup);
   const cardNode = card.createCardNode();
 
   if (type === 'append') {
@@ -136,11 +143,6 @@ function addNewCard(event) {
 
 profileForm.addEventListener('submit', handleProfileFormSubmit);
 closeFullPopup.addEventListener('click', () => closePopup(fullPopup));
-buttonOpenProfileAdd.addEventListener('click', function (evt) {
-  evt.preventDefault();
-  openPopup(modalAdd);
-  // openPopup(addForm, validationConfig);
-});
 buttonCloseProfileAdd.addEventListener('click', () => closePopup(modalAdd));
 
 overleyPopups.forEach((overley) => {
@@ -151,13 +153,6 @@ overleyPopups.forEach((overley) => {
     }
 
   });
-});
-
-buttonOpenPopupProfile.addEventListener('click', () => {
-  nameInput.value = nameProfile.textContent;
-  infoInput.value = infoProfile.textContent;
-
-  openPopup(popupProfile)
 });
 
 buttonCloseProfileForm.addEventListener('click', () => closePopup(popupProfile));
