@@ -64,8 +64,7 @@ _setEventListeners() {
     })
   };
 
-  enableValidation () {
-    const findFormList = Array.from(document.querySelectorAll(this._config.formSelector));
-    this._setEventListeners(this._formElement, this._config)
-};
+  enableValidation () { 
+    this._setEventListeners();
+}
 }
