@@ -1,3 +1,4 @@
+
 import { Card } from './scripts/Card.js';
 import { FormValidator } from "./scripts/FormValidator.js";
 import { Popup } from "./scripts/Popup.js";
@@ -5,7 +6,7 @@ import { Section } from "./scripts/Section.js";
 import { PopupWithForm } from './scripts/PopupWithForm.js';
 import { UserInfo } from './scripts/UserInfo.js';
 
-import "./pages/index.css";
+console.log('Hello, World!') 
 
 const buttonOpenPopupProfile = document.querySelector(".profile__edit-button");
 const buttonOpenProfileAdd = document.querySelector(".profile__add-button")
@@ -36,35 +37,61 @@ const elementsList = document.querySelector('.elements__list');
     inputErrorClass: 'popup__input_type_error',
     errorClass: 'popup__input-error_visible'
   };
-
-const initialCards = [
-  {
-    name: 'Карачаевск',
-    link: './images/karachaevsk.jpg'
-  },
-  {
-    name: 'Гора Эльбрус',
-    link: './images/elbrus.jpg'
-  },
-  {
-    name: 'Домбай',
-    link: './images/Dombai.jpg'
-  },
-  {
-    name: 'Гора Эльбрус',
-    link: './images/elbrus.jpg'
-  },
-  {
-    name: 'Домбай',
-    link: './images/Dombai.jpg'
-  },
-  {
-    name: 'Карачаевск',
-    link: './images/karachaevsk.jpg'
-  },
-];
+  // const initialCards = [
+  //   {
+  //     name: 'Карачаевск',
+  //     link: './images/karachaevsk.jpg'
+  //   },
+  //   {
+  //     name: 'Гора Эльбрус',
+  //     link: './images/elbrus.jpg'
+  //   },
+  //   {
+  //     name: 'Домбай',
+  //     link: './images/Dombai.jpg'
+  //   },
+  //   {
+  //     name: 'Гора Эльбрус',
+  //     link: './images/elbrus.jpg'
+  //   },
+  //   {
+  //     name: 'Домбай',
+  //     link: './images/Dombai.jpg'
+  //   },
+  //   {
+  //     name: 'Карачаевск',
+  //     link: './images/karachaevsk.jpg'
+  //   },
+  // ];
+  const initialCards = [
+    {
+      name: "Архыз",
+      link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
+    },
+    {
+      name: "Челябинская область",
+      link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
+    },
+    {
+      name: "Иваново",
+      link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
+    },
+    {
+      name: "Камчатка",
+      link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
+    },
+    {
+      name: "Холмогорский район",
+      link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
+    },
+    {
+      name: "Байкал",
+      link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
+    },
+  ]; 
 const editProfileFormValidator = new FormValidator(validationConfig, profileForm);
 const addFormValidator = new FormValidator(validationConfig, addForm);
+
 
 editProfileFormValidator.enableValidation();
 addFormValidator.enableValidation();
