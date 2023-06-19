@@ -68,7 +68,7 @@ buttonOpenProfileAdd.addEventListener('click', function() {
 });
 
 buttonOpenPopupProfile.addEventListener('click', function() {
-  const { name, about } = userInfo.getUserInfo();
+  const {name, about} = userInfo.getUserInfo();
   nameInput.value = name;
   infoInput.value = about;
   editProfile.open();
