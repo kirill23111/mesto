@@ -1,11 +1,11 @@
 export class Card {
 
-    constructor(data, selectorTemplate, handleOpenPopup) {
+    constructor(data, selectorTemplate, handleCardClick) {
         this._link = data.link;
         this._name = data.name;
         this._alt = data.name;
         this._selectorTemplate = selectorTemplate;
-        this._handleOpenPopup = handleOpenPopup;
+        this._handleCardClick = handleCardClick;
     }
 
     _getTemplate() {
@@ -35,7 +35,7 @@ export class Card {
     }
 
     _imgClick = () => {
-        this._handleOpenPopup(this._name, this._link);
+        this._handleCardClick(this._name, this._link);
     }
 
     _likeClick = () => {
