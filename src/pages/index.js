@@ -1,12 +1,12 @@
 
-import { Card } from './scripts/Card.js';
-import { FormValidator } from "./scripts/FormValidator.js";
-import { Popup } from "./scripts/Popup.js";
-import { Section } from "./scripts/Section.js";
-import { PopupWithForm } from './scripts/PopupWithForm.js';
-import { PopupWithImage } from './scripts/PopupWithImage.js';
-import { UserInfo } from './scripts/UserInfo.js';
-import './pages/index.css';
+import { Card } from '../components/Card.js';
+import { FormValidator } from "../components/FormValidator.js";
+import { Popup } from "../components/Popup.js";
+import { Section } from "../components/Section.js";
+import { PopupWithForm } from '../components/PopupWithForm.js';
+import { PopupWithImage } from '../components/PopupWithImage.js';
+import { UserInfo } from '../components/UserInfo.js';
+import '../pages/index.css';
 
 const buttonOpenPopupProfile = document.querySelector(".profile__edit-button");
 const buttonOpenProfileAdd = document.querySelector(".profile__add-button")
@@ -37,9 +37,9 @@ const elementsList = document.querySelector('.elements__list');
     inputErrorClass: 'popup__input_type_error',
     errorClass: 'popup__input-error_visible'
   };
-import karachaevsk from './images/karachaevsk.jpg';
-import elbrus from './images/elbrus.jpg';
-import dombai from './images/Dombai.jpg';
+import karachaevsk from '../images/karachaevsk.jpg';
+import elbrus from '../images/elbrus.jpg';
+import dombai from '../images/Dombai.jpg';
   const initialCards = [
     { name: 'Карачаевск', link: karachaevsk },
     { name: 'Гора Эльбрус', link: elbrus },
@@ -68,11 +68,13 @@ buttonOpenProfileAdd.addEventListener('click', function() {
 });
 
 buttonOpenPopupProfile.addEventListener('click', function() {
-  editProfile.open()
+  const { name, about } = userInfo.getUserInfo();
+  nameInput.value = name;
+  infoInput.value = about;
+  editProfile.open();
 });
 
-function handleProfileFormSubmit(a) {
-  a.preventDefault();
+function handleProfileFormSubmit() {
   editProfile.close();
   userInfo.setUserInfo ({
     name: nameInput.value,
@@ -80,6 +82,7 @@ function handleProfileFormSubmit(a) {
   })
   editProfileFormValidator.resetValidation();
 }
+
 const handleCardClick = (name, link) => {
   openImagePopup(name, link)
 }
