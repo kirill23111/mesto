@@ -21,7 +21,7 @@ export class FormValidator {
     errorElement.textContent = '';
   };
 
-  _checkInputValidity = (inputElement) => {    
+  _checkInputValidity = (inputElement) => {
     if (inputElement.validity.valid) {
       this._hideInputError(inputElement, this._config);
     } else {

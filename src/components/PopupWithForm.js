@@ -1,35 +1,51 @@
 import { Popup } from "./Popup.js";
 
 export class PopupWithForm extends Popup {
-    constructor(selector, formSubmitFn) {
-        super(selector);
-        this._formSubmitFn = formSubmitFn;
-        this._form = this._popup.querySelector('.popup__form');
-        this._inputList = this._popup.querySelectorAll('.popup__info');
-    }
-    
-    _getInputValues() {
-        this._formValues = {};
+	_submitFn = (evt) => {
+		evt.preventDefault();
+		this._load();
+		this._formSubmitFn(this._getInputValues());
+	};
 
-        for (const input of this._inputList) {
-            this._formValues[input.name] = input.value;
-        }
+	constructor(selector, formSubmitFn) {
+		super(selector);
+		this._formSubmitFn = formSubmitFn;
+		this._form = this._popup.querySelector('.popup__form');
+		this._inputList = this._popup.querySelectorAll('.popup__input');
+		this._popupSaveBtn = this._popup.querySelector('.popup__save');
+		this._popupSaveBtnText = this._popupSaveBtn.innerText;
+	}
 
-        return this._formValues;
-    }
+	_getInputValues() {
+		this._formValues = {};
 
-    setEventListeners() {
-        super.setEventListeners();
-        window.getInputValues = this._getInputValues;
-        this._popup.addEventListener('submit', (evt) => {
-            evt.preventDefault();
-            console.log(this._getInputValues());
-            this._formSubmitFn(this._getInputValues());
-        });
-    }
+		for (const input of this._inputList) {
+			this._formValues[input.name] = input.value;
+		}
 
-    close() {
-        this._form.reset();
-        super.close();
-    }
+		return this._formValues;
+	}
+
+	setEventListeners() {
+		super.setEventListeners();
+		this._popup.addEventListener('submit', this._submitFn);
+	}
+
+	close() {
+		this._form.reset();
+		super.close();
+	}
+
+	_load(textLoad = 'Сохранение ...') {
+		this._popupSaveBtn.innerText = textLoad;
+		this._popupSaveBtn.classList.add('popup__button_disabled');
+		this._popup.removeEventListener('submit', this._submitFn);
+	}
+
+	loadComplete() {
+		this._popupSaveBtn.innerText = this._popupSaveBtnText;
+		this._popupSaveBtn.classList.remove('popup__button_disabled');
+		this.close();
+		this._popup.addEventListener('submit', this._submitFn);
+	}
 }
