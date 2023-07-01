@@ -46,6 +46,16 @@ export class Api {
 		this._headers = options.headers;
 	}
 
+		/**
+	 * @param {Response} res - ответ от сервера
+	 */
+		_checkResponse(res) {
+			if (res.ok) {
+				return res.json();
+			}
+			return Promise.reject(`Ошибка: ${res.status}`)
+		}
+
 	/**
 	 * Получение массива карточек
 	 * @returns {Promise<CardObj[]>}
@@ -56,18 +66,8 @@ export class Api {
 				authorization: this._headers.authorization
 			}
 		})
-			.then(this._checkResponse);
-	}
-
-	/**
-	 * Получение массива карточек
-	 * @param {Response} res - ответ от сервера
-	 */
-	_checkResponse(res) {
-		if (res.ok) {
-			return res.json();
-		}
-		return Promise.reject(`Ошибка: ${res.status}`)
+			.then(this._checkResponse)
+			.catch(console.error);
 	}
 
 	getUserInfo() {
@@ -76,7 +76,8 @@ export class Api {
 				authorization: this._headers.authorization
 			},
 		})
-			.then(this._checkResponse);
+			.then(this._checkResponse)
+			.catch(console.error);
 	}
 
 	editUserInfo(name, about) {
@@ -91,7 +92,8 @@ export class Api {
 				about: about
 			})
 		})
-			.then(this._checkResponse);
+			.then(this._checkResponse)
+			.catch(console.error);
 	}
 
 	addNewCard(name, link) {
@@ -106,7 +108,8 @@ export class Api {
 				link: link,
 			})
 		})
-			.then(this._checkResponse);
+			.then(this._checkResponse)
+			.catch(console.error);
 	}
 
 	/**
@@ -122,7 +125,8 @@ export class Api {
 			},
 			method: 'PUT'
 		})
-			.then(this._checkResponse);
+			.then(this._checkResponse)
+			.catch(console.error);
 	}
 
 	/**
@@ -139,7 +143,8 @@ export class Api {
 			headers: this._headers,
 			method: 'DELETE',
 		})
-			.then(this._checkResponse);
+			.then(this._checkResponse)
+			.catch(console.error);
 	}
 
 	deleteLike(cardId) {
@@ -149,7 +154,8 @@ export class Api {
 			},
 			method: 'DELETE',
 		})
-			.then(this._checkResponse);
+			.then(this._checkResponse)
+			.catch(console.error);
 	}
 
 	/**
@@ -164,6 +170,7 @@ export class Api {
 				avatar: avatar,
 			}),
 		})
-			.then(this._checkResponse);
+			.then(this._checkResponse)
+			.catch(console.error);
 	}
 }

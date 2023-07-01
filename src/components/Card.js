@@ -39,8 +39,6 @@ export class Card {
 		this._cardOwnerId = data.owner._id;
 		this._likes = data.likes;
 		this._cardObj = data;
-
-		console.log(userId);
 	}
 
 	_getTemplate() {
@@ -110,16 +108,16 @@ export class Card {
 	 */
 	renderLike(cardObj) {
 		this._cardObj = cardObj;
-    this._likes = cardObj.likes;
+		this._likes = cardObj.likes;
 
 		this._countLikeNode.textContent = this._likes.length === 0 ? 0 : this._likes.length;
 
-    if (this._likedCard()) {
-      this._btnLikeNode.classList.add('element__like_active');
-    } else {
-      this._btnLikeNode.classList.remove('element__like_active');
-    }
-  }
+		if (this._likedCard()) {
+			this._btnLikeNode.classList.add('element__like_active');
+		} else {
+			this._btnLikeNode.classList.remove('element__like_active');
+		}
+	}
 
 
 	_isMyCard() {
@@ -127,13 +125,11 @@ export class Card {
 	}
 
 	_trashClick = () => {
-		this._trashNode.removeEventListener('click', this._trashClick);
 		this._handleCardDelete(this, this._cardId);
 	}
 
 	deleteCard = () => {
 		this._elementNode.remove();
 		this._elementNode = null;
-		this._trashNode.addEventListener('click', this._trashClick);
 	}
 };

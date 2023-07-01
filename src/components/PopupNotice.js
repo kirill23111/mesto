@@ -3,8 +3,8 @@ import { Popup } from "./Popup.js";
 class PopupNotice extends Popup {
 
 	_deleteFn = (evt) => {
-		this._deleteButton.removeEventListener('click', this._deleteFn);
 		evt.preventDefault();
+		this._deleteButton.removeEventListener('click', this._deleteFn);
 		this._callbackNotice(this._card, this._cardId);
 	};
 
@@ -24,6 +24,11 @@ class PopupNotice extends Popup {
     this._deleteButton.addEventListener('click', this._deleteFn);
     super.setEventListeners();
   }
+
+	callbackNoticeComplete() {
+		this._deleteButton.addEventListener('click', this._deleteFn);
+		this.close();
+	}
 }
 
 export { PopupNotice };
