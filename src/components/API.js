@@ -67,7 +67,6 @@ export class Api {
 			}
 		})
 			.then(this._checkResponse)
-			.catch(console.error);
 	}
 
 	getUserInfo() {
@@ -77,7 +76,6 @@ export class Api {
 			},
 		})
 			.then(this._checkResponse)
-			.catch(console.error);
 	}
 
 	editUserInfo(name, about) {
@@ -93,7 +91,6 @@ export class Api {
 			})
 		})
 			.then(this._checkResponse)
-			.catch(console.error);
 	}
 
 	addNewCard(name, link) {
@@ -109,7 +106,6 @@ export class Api {
 			})
 		})
 			.then(this._checkResponse)
-			.catch(console.error);
 	}
 
 	/**
@@ -126,7 +122,6 @@ export class Api {
 			method: 'PUT'
 		})
 			.then(this._checkResponse)
-			.catch(console.error);
 	}
 
 	/**
@@ -144,7 +139,6 @@ export class Api {
 			method: 'DELETE',
 		})
 			.then(this._checkResponse)
-			.catch(console.error);
 	}
 
 	deleteLike(cardId) {
@@ -155,7 +149,6 @@ export class Api {
 			method: 'DELETE',
 		})
 			.then(this._checkResponse)
-			.catch(console.error);
 	}
 
 	/**
@@ -171,6 +164,5 @@ export class Api {
 			}),
 		})
 			.then(this._checkResponse)
-			.catch(console.error);
 	}
 }

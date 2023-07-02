@@ -4,7 +4,7 @@ export class PopupWithForm extends Popup {
 	_submitFn = (evt) => {
 		evt.preventDefault();
 		this._load();
-		this._formSubmitFn(this._getInputValues());
+		this._formSubmitFn(this._getInputValues())
 	};
 
 	constructor(selector, formSubmitFn) {
