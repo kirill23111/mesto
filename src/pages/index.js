@@ -69,27 +69,25 @@ function createCardNode(cardInfo) {
 			api.addLike(cardId)
 				.then(cardObj => {
 					card.renderLike(cardObj);
-					card.likeLoadComplete();
 				})
 				.catch((error) => {
 					console.error(error);
 				  })
-				// .finally(() => {
-				// 	card.likeLoadComplete();
-				// })
+				.finally(() => {
+					card.likeLoadComplete();
+				})
 		},
 		handleCardDeleteLike: (cardId) => {
 			api.deleteLike(cardId)
 				.then(cardObj => {
 					card.renderLike(cardObj);
-					card.likeLoadComplete();
 				})
 				.catch((error) => {
 					console.error(error);
 				  })
-				// .finally(() => {
-				// 	card.likeLoadComplete();
-				// });
+				.finally(() => {
+					card.likeLoadComplete();
+				});
 		},
 		handleCardDelete: (cardNode, cardId) => {
 			popupNotice.open(cardNode, cardId);
@@ -103,14 +101,13 @@ const popupNotice = new PopupNotice('.popup_notice', {
 		api.deleteCard(cardId)
 			.then(() => {
 				card.deleteCard();
-				popupNotice.callbackNoticeComplete();
 			})
 			.catch((error) => {
 				console.error(error);
 			  })
-			// .finally(() => {
-			// 	popupNotice.callbackNoticeComplete();
-			// });
+			.finally(() => {
+				popupNotice.callbackNoticeComplete();
+			});
 	}
 });
 function formAddNewCard(cardObj) {
@@ -118,16 +115,14 @@ function formAddNewCard(cardObj) {
 		.then(cardInfo => {
 			const cardNode = createCardNode(cardInfo);
 			cardsSection.addItem(cardNode);
-			modalAddPopup.loadComplete();
 		})
 		.catch((error) => {
 			console.error(error);
 		  })
-		// .finally(() => {
-		// 	modalAddPopup.loadComplete();
-		// });
+					.finally(() => {
+			modalAddPopup.loadComplete();
+		});
 }
-
 const cardsSection = new Section({
 	items: [],
 	renderer: (cardInfo) => {
@@ -141,14 +136,13 @@ function handleAvatarFormSubmit({ avatar }) {
 	api.editAvatar(avatar)
 		.then(userUpdated => {
 			userInfo.setUserAvatar(userUpdated.avatar);
-			avatarPopup.loadComplete();
 		})
 		.catch((error) => {
 			console.error(error);
 		  })
-		// .finally(() => {
-		// 	avatarPopup.loadComplete();
-		// });
+		.finally(() => {
+			avatarPopup.loadComplete();
+		});
 }
 
 const fullPopup = new PopupWithImage('.popup-full');
@@ -163,14 +157,13 @@ function handleProfileFormSubmit(inputValues) {
 		.then(userUpdated => {
 			userInfo.setUserInfo(userUpdated);
 			editProfileFormValidator.resetValidation();
-			editProfile.loadComplete();
 		})
 		.catch((error) => {
 			console.error(error);
 		  })
-		// .finally(() => {
-		// 	editProfile.loadComplete();
-		// });
+		.finally(() => {
+			editProfile.loadComplete();
+		});
 }
 
 // const popupNotice = new PopupNotice('.popup_notice', ());

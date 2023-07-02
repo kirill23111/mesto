@@ -1,12 +1,26 @@
 import { Popup } from "./Popup.js";
 
 export class PopupWithForm extends Popup {
+	// _submitFn = (evt) => {
+	// 	evt.preventDefault();
+	// 	this._load();
+	// 	this._formSubmitFn(this._getInputValues())
+	// };
 	_submitFn = (evt) => {
 		evt.preventDefault();
 		this._load();
-		this._formSubmitFn(this._getInputValues())
-	};
 
+		Promise.resolve(this._formSubmitFn(this._getInputValues()))
+			.then(() => {
+				this.close();
+			})
+			.catch((error) => {
+				console.error(error);
+			})
+			.finally(() => {
+				this.loadComplete();
+			})
+	};
 	constructor(selector, formSubmitFn) {
 		super(selector);
 		this._formSubmitFn = formSubmitFn;
@@ -16,6 +30,15 @@ export class PopupWithForm extends Popup {
 		this._popupSaveBtnText = this._popupSaveBtn.textContent;
 	}
 
+	_load(textLoad = 'Сохранение ...') {
+		this._popupSaveBtn.textContent = textLoad;
+		this._popupSaveBtn.classList.add('popup__button_disabled');
+	}
+
+	loadComplete() {
+		this._popupSaveBtn.textContent = this._popupSaveBtnText;
+		this._popupSaveBtn.classList.remove('popup__button_disabled');
+	}
 	_getInputValues() {
 		this._formValues = {};
 
@@ -36,16 +59,4 @@ export class PopupWithForm extends Popup {
 		super.close();
 	}
 
-	_load(textLoad = 'Сохранение ...') {
-		this._popupSaveBtn.textContent = textLoad;
-		this._popupSaveBtn.classList.add('popup__button_disabled');
-		this._popup.removeEventListener('submit', this._submitFn);
-	}
-
-	loadComplete() {
-		this._popupSaveBtn.textContent = this._popupSaveBtnText;
-		this._popupSaveBtn.classList.remove('popup__button_disabled');
-		this.close();
-		this._popup.addEventListener('submit', this._submitFn);
-	}
 }
